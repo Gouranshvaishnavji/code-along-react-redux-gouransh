@@ -19,7 +19,7 @@ const Main = () => {
   return (
     <div className="listContainer">
       <button onClick={toggleData}>{dataVisible ? 'Hide Data' : 'Show Data'}</button>
-      {dataVisible && ( // Conditionally render data if visible
+      {dataVisible && (
         <div>
           {list.map((item, index) => (
             <div className="listItem" key={index}>
