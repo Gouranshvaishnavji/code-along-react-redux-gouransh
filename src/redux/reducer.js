@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// fetching the data from apiu
 
 export const fetchUser = createAsyncThunk('fetchUser', async () => {
     try {

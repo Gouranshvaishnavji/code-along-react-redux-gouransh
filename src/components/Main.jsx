@@ -1,37 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUser, listSelector, toggleDataAction } from '../redux/reducer'; // Import fetchUser action
+import React, { useEffect } from 'react'
+import { useDispatch,useSelector } from 'react-redux'
+import {listAction, listSelector} from '../redux/reducer'
+import { fetchUser } from '../redux/reducer';
 
 const Main = () => {
-  const dispatch = useDispatch();
-  const list = useSelector(listSelector);
-  const [dataVisible, setDataVisible] = useState(true); // State for data visibility
 
-  useEffect(() => {
+    const dispatch = useDispatch();
+
+    const list = useSelector(listSelector);
+
+    useEffect(() => {
     dispatch(fetchUser());
-  }, [dispatch]);
-
-  const toggleData = () => {
-    setDataVisible(!dataVisible); // Toggle data visibility state
-    dispatch(toggleDataAction(!dataVisible)); // Dispatch action to update data visibility in redux
-  };
+    }, []);
 
   return (
-    <div className="listContainer">
-      <button onClick={toggleData}>{dataVisible ? 'Hide Data' : 'Show Data'}</button>
-      {dataVisible && (
-        <div>
-          {list.map((item, index) => (
-            <div className="listItem" key={index}>
-              <p className="name">{item.name}</p>
-              <p className="email">{item.email}</p>
-              <hr />
-            </div>
-          ))}
-        </div>
-      )}
+    <div>
+        {
+            list.map((item,index)=>{
+                return(
+                    <div>
+                        {item.name}<br/>
+                        {item.email}
+                        <br /><br />
+                        <hr />
+                    </div>
+                )
+            })
+        }     
     </div>
-  );
-};
-
+  )
+}
 export default Main;
