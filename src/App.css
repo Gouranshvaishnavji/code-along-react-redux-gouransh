@@ -1,0 +1,36 @@
+.listItem {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.listItem hr {
+  margin-top: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.listItem p {
+  margin: 0;
+}
+
+.listItem .name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.listItem .email {
+  color: #666;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+
+
