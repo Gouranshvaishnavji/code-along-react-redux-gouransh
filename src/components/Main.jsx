@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { listAction, listSelector, toggleDataAction } from '../redux/reducer'; // Import toggleDataAction
+import { fetchUser, listSelector, toggleDataAction } from '../redux/reducer'; // Import fetchUser action
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -9,11 +9,11 @@ const Main = () => {
 
   useEffect(() => {
     dispatch(fetchUser());
-  }, []);
+  }, [dispatch]);
 
   const toggleData = () => {
     setDataVisible(!dataVisible); // Toggle data visibility state
-    dispatch(toggleDataAction(dataVisible)); // Dispatch action to update data visibility in redux (if necessary)
+    dispatch(toggleDataAction(!dataVisible)); // Dispatch action to update data visibility in redux
   };
 
   return (
