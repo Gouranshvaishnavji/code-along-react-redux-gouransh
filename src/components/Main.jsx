@@ -14,20 +14,18 @@ const Main = () => {
     }, []);
 
   return (
-    <div>
-        {
-            list.map((item,index)=>{
-                return(
-                    <div>
-                        {item.name}<br/>
-                        {item.email}
-                        <br /><br />
-                        <hr />
-                    </div>
-                )
-            })
-        }     
+    <div className="listContainer">
+    {list.map((item, index) => {
+        return (
+        <div className="listItem" key={index}>
+            <p className="name">{item.name}</p>
+            <p className="email">{item.email}</p>
+            <hr />
+        </div>
+        );
+    })}
     </div>
+
   )
 }
 export default Main;
